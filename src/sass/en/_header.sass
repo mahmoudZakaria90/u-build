@@ -1,2 +1,16 @@
 /*Header*/
 @import header-stuff
+
+.header
+	&-nav-items
+		padding-top: 1em
+		& > li
+			display: inline-block
+			&.active > a 
+				border-bottom: 2px solid orange
+			& > a
+				display: block
+				padding: 1em 1.5em
+				font-weight: bold
+				text-decoration: none
+				color: $second-color

@@ -25,10 +25,10 @@ body {
 }
 
 body {
-  font-family: "open-sans", sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
-  color: #1a1a1a;
+  color: #555;
   font-weight: 400;
   direction: ltr;
 }
@@ -48,7 +48,7 @@ img {
 }
 
 h1 {
-  font-size: 3.4rem;
+  font-size: 5rem;
 }
 
 h2 {
@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Tahoma", sans-serif;
   font-weight: inherit;
   line-height: inherit;
 }
@@ -90,7 +90,7 @@ input[type="password"]:focus,
 input[type="email"]:focus,
 input[type="search"]:focus,
 input[type="number"]:focus {
-  border-color: #97783c;
+  border-color: #20cfe2;
 }
 
 table {
@@ -203,7 +203,7 @@ input, button {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #97783c;
+  background-color: #20cfe2;
   display: inline-block;
   cursor: pointer;
   margin: 0 1rem;
@@ -219,21 +219,21 @@ input, button {
 }
 .slider-indicator.active {
   cursor: default;
-  background-color: #1a1a1a;
+  background-color: #555;
 }
 
 button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"], .gv-btn {
-  background-color: #97783c;
+  background-color: #20cfe2;
   border-radius: 0.4rem;
   padding: 0.6rem 4rem;
   cursor: pointer;
   position: relative;
   display: inline-block;
   text-decoration: none;
-  color: #1a1a1a;
+  color: #555;
 }
 button:active,
 input[type="submit"]:active,
@@ -246,8 +246,8 @@ button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 input[type="button"]:hover, .gv-btn:hover {
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: #555;
+  color: #999;
 }
 
 /*Grid */
@@ -400,7 +400,7 @@ input[type="button"]:hover, .gv-btn:hover {
 }
 .header-nav-wrap li a {
   text-decoration: none;
-  color: #fff;
+  color: #999;
 }
 .header-nav-wrap .fa {
   font-size: 1.4rem;
@@ -418,15 +418,38 @@ input[type="button"]:hover, .gv-btn:hover {
   padding-left: 1.5rem;
 }
 
+.header-nav-items {
+  padding-top: 1em;
+}
+.header-nav-items > li {
+  display: inline-block;
+}
+.header-nav-items > li.active > a {
+  border-bottom: 2px solid orange;
+}
+.header-nav-items > li > a {
+  display: block;
+  padding: 1em 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #20cfe2;
+}
+
 /*Footer */
 /*Custom */
+.main-intro {
+  width: 40%;
+  margin: auto;
+  font-weight: 600;
+}
+
 /* @keyframes & transitions */
 /*Regular give.css */
 .gv-main-face {
-  font-family: "open-sans", sans-serif;
+  font-family: "Arial", sans-serif;
 }
 .gv-heading-face {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Tahoma", sans-serif;
 }
 .gv-bold {
   font-weight: 700;
@@ -747,22 +770,22 @@ input[type="button"]:hover, .gv-btn:hover {
   clear: both;
 }
 .gv-color-main {
-  color: #1a1a1a;
+  color: #555;
 }
 .gv-color-second {
-  color: #97783c;
+  color: #20cfe2;
 }
-.gv-color-blue {
-  color: #97783c;
+.gv-color-third {
+  color: #999;
 }
 .gv-bg-main {
-  background-color: #1a1a1a;
+  background-color: #555;
 }
 .gv-bg-second {
-  background-color: #97783c;
+  background-color: #20cfe2;
 }
-.gv-bg-blue {
-  background-color: #97783c;
+.gv-bg-third {
+  background-color: #999;
 }
 .gv-bg-center {
   background-position: center center;
