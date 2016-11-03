@@ -1,0 +1,36 @@
+{
+  "name": "U-build",
+  "version": "1.0.0",
+  "description": "Grid-builder",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahmoudZakaria90/u-build.git"
+  },
+  "keywords": [
+    "HTML",
+    "CSS",
+    "Javascript",
+    "Grid-builder"
+  ],
+  "author": "Mahmoud Zakaria",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mahmoudZakaria90/u-build/issues"
+  },
+  "homepage": "https://github.com/mahmoudZakaria90/u-build#readme",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-jshint-notify-reporter": "^1.0.2",
+    "gulp-ruby-sass": "^2.1.0",
+    "jshint": "^2.9.3",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
