@@ -5,7 +5,7 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var jshint = require('gulp-jshint');
 var notificator = require('gulp-jshint-notify-reporter');
-
+var csso = require('gulp-csso');
 
 //sass-en
 gulp.task('sass', function () {
@@ -66,5 +66,12 @@ gulp.task('server',function(){
 	})
 })
 
+
+//css minify
+gulp.task('csso', function () {
+    return gulp.src('./public/css/*.css')
+        .pipe(csso())
+        .pipe(gulp.dest('./public/css/'));
+});
 //default
-gulp.task('default',['watch','server','browserify'])
+gulp.task('default',['watch','server','browserify','sass','sass-ar','csso'])
