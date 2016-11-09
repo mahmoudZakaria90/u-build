@@ -35,7 +35,8 @@ body
 a,
 button,
 input
-	+gvTransition(background-color 450ms,color 450ms)
+	-webkit-transition: background-color 450ms,color 450ms
+	transition: background-color 450ms,color 450ms
 
 
 img  
@@ -80,7 +81,8 @@ input[type="number"]
 	border: .1rem solid $border-color-default
 	border-radius: $border-radius-reg
 	display: inline-block
-	+gvTransitionD()
+	-webkit-transition: all 450ms
+	transition: all 450ms
 	&:focus
 		border-color: $second-color
 table
@@ -112,6 +114,7 @@ label
 input,button
 	border: none
 	color: inherit
+	vertical-align: middle
 
 
 ::-webkit-input-placeholder

@@ -13,5 +13,39 @@
 	&-container
 		border-radius: .4em
 		border: 2px dotted $main-color
-		height: 500px
+		min-height: 500px
 		background-color: white
+	&-item
+		&-title
+			font-size: $h2
+			cursor: pointer
+			-webkit-user-select: none
+			-moz-user-select: none
+			
+		&-checkbox:checked ~ &-inputs
+			display: flex
+		&-checkbox:checked ~ &-title
+			.fa
+				&:before
+					content: '\f0d7'
+		&-inputs
+			padding: 1em
+			border: 1px solid #ddd
+			display: none
+			flex-wrap: wrap
+			align-items: center
+
+			&>*
+				flex-grow: 1
+				width: 20%
+				padding: 0 1.5rem
+				margin-bottom: 1rem
+			&-flex
+				width: auto
+			input[type="text"],input[type="number"]
+				width: 100%
+			&-btn
+				flex-basis: 100%
+				margin-bottom: 0
+				&>*
+					width: 100%

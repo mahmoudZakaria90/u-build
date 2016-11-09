@@ -1,10 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
 var connect = require('gulp-connect');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
-var jshint = require('gulp-jshint');
-var notificator = require('gulp-jshint-notify-reporter');
 var csso = require('gulp-csso');
 
 //sass-en
@@ -20,8 +16,7 @@ gulp.task('sass', function () {
 gulp.task('watch',function(){
 	gulp.watch('./src/sass/en/*.sass',['sass'])
 	gulp.watch('./public/**/*.html',['html'])
-	gulp.watch('./src/js/script.js',['browserify'])
-    gulp.watch('./src/js/**.js',['lint'])
+    gulp.watch('./src/js/*.js',['js'])
 })
 
 
@@ -32,23 +27,11 @@ gulp.task('html', function() {
 
 })
 
-//Browserify
-gulp.task('browserify', function() {
-    return browserify('./src/js/script.js')
-        .bundle()
-        //Pass desired output filename to vinyl-source-stream
-        .pipe(source('script.js'))
-        // Start piping stream to tasks!
-        .pipe(gulp.dest('./public/js/'))
-        .pipe(connect.reload());
-});
-
-//Js lint
-gulp.task('lint', function() {
-  return gulp.src('./src/js/*.js')
-    .pipe(jshint())
-    .pipe(notificator())
-});
+gulp.task('js', function() {
+    gulp.src('./src/js/*.js')
+        .pipe(connect.reload())
+        .pipe(gulp.dest('./public/js'))
+})
 
 //Localhost 
 gulp.task('server',function(){
@@ -66,4 +49,4 @@ gulp.task('csso', function () {
         .pipe(gulp.dest('./public/css/'));
 });
 //default
-gulp.task('default',['watch','server','browserify','sass','csso'])
+gulp.task('default',['watch','server','js','sass','csso'])
