@@ -24,6 +24,11 @@ var ub = {
 	
 	u_forms: document.forms,
 	u_formsArray: [],
+	u_removeBtn: function(){
+		var newBtn = document.createElement('button')
+		newBtn.className = "u-remove fa fa-times"
+		return newBtn
+	},
 
 	u_formsEach: function(){
 		for(var i = 0; i < this.u_forms.length; i++){
@@ -41,7 +46,6 @@ var ub = {
 			formsColSubmit.addEventListener('mousedown',function(){
 				var parent = el.parentNode.parentNode;
 				var parentInner = el.parentNode;
-				var newRow = document.createElement('div');
 
 				if(formsFlex.checked){
 					parent.style.display = 'flex';
@@ -50,10 +54,11 @@ var ub = {
 				}
 
 				if(formsRow.checked){
+					var newRow = document.createElement('div');
 					newRow.className = 'row'
 					parent.appendChild(newRow)
-				}else{
-					newRow.remove()
+					newRow.appendChild(ub.u_removeBtn())
+					
 				}
 			})
 		})
