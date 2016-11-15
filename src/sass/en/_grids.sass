@@ -1,15 +1,3 @@
-/*Grid*/
-$base: 12
-$gutter: 30
-@for $i from 1 through $base
-	.gv
-		&-#{$i}
-			width: (($i / $base) * 100%)
-			position: relative
-			float: $dir
-			padding: 0  $gutter / 2 + px
-			flex-grow: 1
-
 //row 
 .row
 	margin: 0 -1.5rem
@@ -34,5 +22,19 @@ $gutter: 30
 //container
 .container
 	max-width: 960px
-	padding: 0 $reg
+	padding: 0 1.5rem
 	margin: 0 auto
+
+
+/*Grid*/
+$base: 12
+$gutter: 30
+@for $i from 1 through $base
+	.gv
+		&-#{$i}
+			width: (($i / $base) * 100%)
+			position: relative
+			float: left
+			padding: 0  $gutter / 2 + px
+			flex-grow: 1
+

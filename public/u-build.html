@@ -27,7 +27,8 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
 
     <!--Custom-->
-    <link href="css/style-en.css" rel="stylesheet">
+    <link href="css/u-build.css" rel="stylesheet">
+    <link href="css/demo.css" rel="stylesheet">
     <link href="css/responsive-en.css" rel="stylesheet">
 
 
@@ -51,22 +52,27 @@
     <!--==============content Goes here==============================-->
      <section class="u-system">
 
+        <div class="container gv-no-padding gv-margin-bottom gv-align-right">
+           <div class="u-container-input-wrap gv-relative gv-inline-block">
+             <input max="1920"  type="number" class="u-container-input" id="u-container-input">
+             <!-- <p class="u-container-input-feedback" id="u-container-input-feedback"></p> -->
+           </div>
+        </div>
+        
         <div id="u-container" class="u-container container">
-
           <div class="u-item-wrap">
             <input type="checkbox" hidden="" class="u-item-checkbox">
             <label for="" class="u-item-title">Container <span class="fa fa-caret-right"></span></label>
             <form action="" class="u-item-inputs">
               <label for="" class="u-item-inputs-flex" disabled="">Flex <input type="checkbox" disabled=""></label>
               <label for="" class="u-item-inputs-flex u-item-inputs-row">Row <input type="checkbox"></label>
-              <label for=""><input type="number" placeholder="Width"></label>
+              <label for=""><input type="text" placeholder="Width"></label>
               <label for=""><input type="text" placeholder="Tag name"></label>
-              <label for=""><input type="number" placeholder="Cols quantity"></label>
-              <label for=""><input type="number" placeholder="Col width"></label>
+              <label for=""><input type="text" placeholder="Cols quantity"></label>
+              <label for=""><input type="text" placeholder="Col width"></label>
               <label for="" class="u-item-inputs-btn"><input type="button" value="Submit"></label>
             </form>
           </div>
-
         </div>
        
      </section>
@@ -78,6 +84,6 @@
     </footer><!--end-of footer-->
     
     <!--custom-->
-    <script src="js/script.js"></script>
+    <script src="js/u-build.js"></script>
   </body>
 </html>
