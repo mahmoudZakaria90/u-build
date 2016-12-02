@@ -28,7 +28,7 @@ let u = {
 				return false
 			}
 			this.containerOuter.style.maxWidth = parsed + 'px';
-		}
+		}.bind(u)
 		
 		this.containerOuter.title = this.containerOuter.offsetWidth + 'px'
 		this.containerOuter.addEventListener('click',function(e){
