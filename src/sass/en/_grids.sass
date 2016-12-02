@@ -30,11 +30,11 @@
 $base: 12
 $gutter: 30
 @for $i from 1 through $base
-	.gv
+	.span
 		&-#{$i}
 			width: (($i / $base) * 100%)
 			position: relative
 			float: left
-			padding: 0  $gutter / 2 + px
+			padding: 1.5rem  $gutter / 2 + px
 			flex-grow: 1
 

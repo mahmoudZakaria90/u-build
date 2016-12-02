@@ -3,55 +3,73 @@
 
 //Copy
 if(document.querySelector('footer button')){
-var copyBtn = document.querySelector('footer button');
+let copyBtn = document.querySelector('footer button');
 	copyBtn.onclick = function(){
-	 	var x = document.getElementsByTagName('textarea')[0]
+	 	let x = document.getElementsByTagName('textarea')[0]
 	 	x.select()
 	 	document.execCommand('copy')
 	}
 }
 
-var u = {
-	label_checkbox: function(){
-		this.label= document.getElementsByClassName('u-item-title');
-		this.checkbox = document.getElementsByClassName('u-item-checkbox')
-			for (var i = 0; i < this.label.length; i++) {
-				this.label[i].setAttribute('for','checkbox'+i)
-				this.checkbox[i].id = 'checkbox' + i
+let u = {
+	containerOuter : document.querySelector('.u-build .container'),
+	containerInner: document.querySelectorAll('.u-build .container *'),
+	init: function() {
+		
+		for (let i = 0; i < this.containerInner.length; i++) {
+			this.containerInner[i].title = Math.floor(this.containerInner[i].offsetWidth) + 'px'
 		}
 	},
-	container: function(){
-		var container = document.getElementById('u-container');
-		var containerInput = document.getElementById('u-container-input');
-		// var feedback = document.getElementById('u-container-input-feedback');
-		containerInput.placeholder = 'Container by default = ' + container.offsetWidth + 'px'
-		containerInput.setAttribute('min',container.offsetWidth)
-		// feedback.innerHTML = container.offsetWidth
-		containerInput.oninput = function(){
-			container.style.maxWidth = containerInput.value + 'px';
-			// feedback.innerHTML = container.offsetWidth
-			
+	container: function() {
+		let containerInput = document.getElementById('u-container-input');
+		containerInput.oninput = function() {
+			let parsed = parseInt(containerInput.value)
+			if(parsed < 320 || parsed > 1920){
+				return false
+			}
+			this.containerOuter.style.maxWidth = parsed + 'px';
 		}
+		
+		this.containerOuter.title = this.containerOuter.offsetWidth + 'px'
+		this.containerOuter.addEventListener('click',function(e){
+			this.eventObj = {
+				targetEl: e.target,
+				targetType: e.type,
+				targetName: e.target.tagName.toLowerCase(),
+				targetClass: e.target.className,
+				targetId: e.target.id
+			}
+		
+		},true)
 	},
-	forms: function(){
-		var afterLoop = [];
-		var docForms = document.forms;
+	target: function() {
+		var allElements = []
+		for (var i = 0; i < this.containerInner.length; i++) {
+			allElements.push(this.containerInner[i])
+		}
+		allElements.forEach(function(n){
+			n.addEventListener('click', function(e){
+			this.eventObj = {
+				targetEl: e.target,
+				targetType: e.type,
+				targetName: e.target.tagName.toLowerCase(),
+				targetClass: e.target.className,
+				targetId: e.target.id
+			}
+			document.getElementsByClassName('span-4')[2].innerHTML = u.eventObj
+		
+			}, false)
+		})
+	},
 
-		for (var i = 0; i < docForms.length; i++) {
-			afterLoop.push(docForms[i])
-		}
-		return afterLoop
-	},
-	formLiterly: function(){
-		var formStructure = '<div class="u-item-wrap"><input type="checkbox" hidden="" class="u-item-checkbox"><label for="" class="u-item-title">Container <span class="fa fa-caret-right"></span></label><form action="" class="u-item-inputs"> <label for="" class="u-item-inputs-flex" disabled="">Flex <input type="checkbox" disabled=""></label> <label for="" class="u-item-inputs-flex u-item-inputs-row">Row <input type="checkbox"></label> <label for=""><input type="text" placeholder="Width"></label><label for=""><input type="text" placeholder="Tag name"></label><label for=""><input type="text" placeholder="Cols quantity"></label> <label for=""><input type="text" placeholder="Col width"></label><label for="" class="u-item-inputs-btn"><input type="button" value="Submit"></label></form></div>'
-		this.label_checkbox()
-		return formStructure
-	}
+	
 }
 	
 	
 
-window.addEventListener('load',function(){
-	u.label_checkbox()
+window.addEventListener('load',() => {
 	u.container()
+	u.init()
+	u.target()
+	
 })
