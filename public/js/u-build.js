@@ -56,11 +56,11 @@ let u = {
 				targetClass: e.target.className,
 				targetId: e.target.id
 			}
-			document.getElementsByClassName('span-4')[2].innerHTML = u.eventObj
+			document.getElementsByClassName('span-4')[2].innerHTML = this.eventObj.targetClass
 		
 			}, false)
 		})
-	},
+	}
 
 	
 }
