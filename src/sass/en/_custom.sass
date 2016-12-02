@@ -7,30 +7,47 @@
 
 
 .u
+	&-item
+		&-inputs
+			position: fixed
+			z-index: 33
+			bottom: 0
+			left: 0
+			right: 0
+			padding: 1.5rem
+			background-color: #2f2825
+			// border-top: 1px solid white
+			&>label
+				margin: 1rem
+				display: inline-block
+			&>h2
+				text-transform: capitalize
+		&-text
+			input
+				width: 300px
 	&-system
-		background-color: lighten($second-color, 40%)
-		padding: $lg 0
+		background-color: #1366ac
+		padding: 1.5rem 0
+		margin-bottom: 142px
+		color: white
+		&>h1
+			border-bottom: 1px solid white
+			width: 500px
 	&-container
 		&-input
 			width: 320px
 	&-build
-
 		& div
 			border: 1px dashed $third-color
-			
 			&:before
 				content: attr(class)
+				text-transform: capitalize
 				display: block
 				font-size: 1.2rem
-
 			&:hover
-				border-color: red
+				border-color: yellow
 				cursor: pointer
-		&.container
-			max-width: none
-			padding: 0
-		.container
-			min-height: 500px
-			padding: 1.5rem
+		& .container
+			padding: .5rem 1.5rem 1.5rem
 
 	
