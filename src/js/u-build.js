@@ -57,7 +57,6 @@ let u = {
 			this.buildingForm.form.className += ' active'
 
 			this.buildingForm.submitBtn.onmousedown = function(e){
-				alert('submit')
 				for (let i = 0; i < this.quantity.value; i++) {
 					var newElement = document.createElement(this.tagName.value)
 					newElement.className = 'span-' + Math.floor((12 / this.quantity.value))
@@ -69,7 +68,6 @@ let u = {
 			}.bind(u), false)
 		})
 	},
-
 	buildingForm: {
 		form: document.forms[0],
 		targetTitle: document.getElementById('u-target'),
