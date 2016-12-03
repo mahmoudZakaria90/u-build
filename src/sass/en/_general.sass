@@ -112,14 +112,20 @@ label
 
 [disabled]
 	cursor: not-allowed!important
-	background-color: #ddd!important
 	opacity: .8
 
+input[type="button"][disabled]
+	background-color: #ddd!important
 input,button
 	border: none
 	color: inherit
 	vertical-align: middle
 
+small
+	+gvTransitionD()
+
+.disabled
+	color: rgba(white,.5)
 
 ::-webkit-input-placeholder
 	color: black

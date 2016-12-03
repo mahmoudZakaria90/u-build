@@ -55,7 +55,6 @@ let u = {
 			eventObj.targetEl.style.borderColor = 'yellow'
 			this.buildingForm.targetTitle.innerHTML = eventObj.targetClass
 			this.buildingForm.form.className += ' active'
-
 			this.buildingForm.submitBtn.onclick = function(e){
 				e.preventDefault()
 				if(this.rowCheckbox.checked){		
@@ -87,6 +86,7 @@ let u = {
 		targetTitle: document.getElementById('u-target'),
 		init: function(){
 			this.enable()
+			this.checkboxes()
 		},
 		enable: function(){
 			let wrap = []
@@ -104,6 +104,34 @@ let u = {
 				}.bind(u.buildingForm)
 			})
 			
+		},
+		checkboxes: function(){
+			let wrap = []
+			let el = document.querySelectorAll('.u-item-inputs-flex input')
+			for (let i = 0; i < el.length; i++) {
+				wrap.push(el[i])
+			}
+			wrap.forEach(function(n,ind,arr){
+				
+				n.onchange = function(){
+				
+				if(arr[0].checked){
+					arr[1].setAttribute('disabled','disabled')
+					arr[1].parentNode.classList.add('disabled')
+				}else{
+					arr[1].removeAttribute('disabled')
+					arr[1].parentNode.classList.remove('disabled')
+				}
+
+				if(arr[1].checked){
+						arr[0].setAttribute('disabled','disabled')
+						arr[0].parentNode.classList.add('disabled')
+					}else{
+						arr[0].removeAttribute('disabled')
+						arr[0].parentNode.classList.remove('disabled')
+					}
+				}
+			})
 		},
 		flexCheckbox: document.getElementById('u-flexCheckbox'),
 		rowCheckbox: document.getElementById('u-rowCheckbox'),
