@@ -83,6 +83,7 @@ input[type="number"]
 	display: inline-block
 	-webkit-transition: all 450ms
 	transition: all 450ms
+	color: $main-color
 	&:focus
 		border-color: $second-color
 table
@@ -110,7 +111,8 @@ label
 	font-weight: normal
 
 [disabled]
-	cursor: not-allowed
+	cursor: not-allowed!important
+	background-color: #ddd!important
 	opacity: .8
 
 input,button

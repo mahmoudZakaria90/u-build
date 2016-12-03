@@ -33,7 +33,7 @@
 
 
   </head>
-  <body>
+  <body style="background-color: #1366ac">
 
    <a href="https://github.com/mahmoudZakaria90/u-build"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
     
@@ -62,23 +62,20 @@
            </div>
         </div>
 
-    <form action="" id="u-item-inputs" class="u-item-inputs">
-      <h2 id="u-target"></h2>
-      <label for="" class="u-item-inputs-flex" disabled="">Flex <input type="checkbox" disabled=""></label>
-      <label for="" class="u-item-inputs-flex u-item-inputs-row">Row <input type="checkbox"></label>
-      <label for="" class="u-item-text"><input type="text" placeholder="Tag name"></label>
-      <label for="" class="u-item-text"><input type="text" placeholder="Cols quantity"></label>
-      <label for="" class="u-item-inputs-btn"><input type="button" value="Submit"></label>
+    <form action="" class="u-item-inputs">
+      <h2 id="u-target">Select Container</h2>
+      <div id="u-item-labels-wrap" class="u-item-labels-wrap">
+        <label for="" class="u-item-inputs-flex">Flex <input id="u-flexCheckbox" type="checkbox" ></label>
+        <label for="" class="u-item-inputs-flex u-item-inputs-row">Row <input id="u-rowCheckbox" type="checkbox"></label>
+        <label for="" class="u-item-text"><input class="u-item-text-input" id="u-item-tagName" type="text" placeholder="Tag name"></label>
+        <label for="" class="u-item-text"><input class="u-item-text-input" id="u-item-quan" type="number" min="0" max="12" placeholder="Cols quantity"></label>
+        <label for="" class="u-item-inputs-btn"><input disabled="" type="submit" id="u-item-btn" value="Submit"></label>
+      </div>
     </form>
         
       <div class="u-build">
         <div class="container">
-          <div class="span-4">
-            <div class="span-6"></div>
-            <div class="span-5"></div>
-          </div>
-          <div class="span-4"></div>
-          <div class="span-4"></div>
+
         </div>
        </div>
      </section>

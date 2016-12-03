@@ -16,16 +16,22 @@
 			right: 0
 			padding: 1.5rem
 			background-color: #2f2825
+			min-height: 142px
 			// border-top: 1px solid white
+			&>h2
+				text-transform: capitalize
+			&.active .u-item-labels-wrap
+				height: 58px
+		&-labels-wrap
+			height: 0px
+			overflow: hidden
+			+gvTransitionD()
 			&>label
 				margin: 1rem
 				display: inline-block
-			&>h2
-				text-transform: capitalize
 		&-text
 			input
 				width: 300px
-				color: black
 	&-system
 		background-color: #1366ac
 		padding: 1.5rem 0
@@ -40,7 +46,7 @@
 		&-input
 			width: 320px
 	&-build
-		& div
+		& div , & section , & article
 			border: 1px dashed $third-color
 			&:before
 				content: attr(class)
@@ -48,7 +54,7 @@
 				display: block
 				font-size: 1.2rem
 			&:hover
-				border-color: yellow
+				border-color: yellow!important
 				cursor: pointer
 		& .container
 			padding: .5rem 1.5rem 1.5rem

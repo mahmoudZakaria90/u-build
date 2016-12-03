@@ -32,7 +32,6 @@ let u = {
 			}
 			this.containerOuter.style.maxWidth = parsed + 'px';
 		}.bind(u)
-		this.containerOuter.style.borderColor = 'yellow'
 	},
 	target: function() {
 		let allElements = []
@@ -50,22 +49,56 @@ let u = {
 				targetId: e.target.id
 			}
 			
-
-			for (var i = 0; i < arr.length; i++) {
-				arr[i].style.borderColor = '#999'
+			for (let i = 0; i < this.containerOuter.children.length; i++) {
+				this.containerOuter.children[i].style.borderColor = '#999'
 			}
 			eventObj.targetEl.style.borderColor = 'yellow'
+			this.buildingForm.targetTitle.innerHTML = eventObj.targetClass
+			this.buildingForm.form.className += ' active'
 
-			this.buildingForm.targetELd.innerHTML = eventObj.targetClass
+			this.buildingForm.submitBtn.onmousedown = function(e){
+				alert('submit')
+				for (let i = 0; i < this.quantity.value; i++) {
+					var newElement = document.createElement(this.tagName.value)
+					newElement.className = 'span-' + Math.floor((12 / this.quantity.value))
+					eventObj.targetEl.appendChild(newElement)
+				}
+
+			}.bind(u.buildingForm)
+
 			}.bind(u), false)
 		})
 	},
 
 	buildingForm: {
-		targetELd: document.getElementById('u-target'),
+		form: document.forms[0],
+		targetTitle: document.getElementById('u-target'),
 		init: function(){
-			this.targetELd.innerHTML = u.containerOuter.className
-		}
+			this.enable()
+		},
+		enable: function(){
+			let wrap = []
+			let el = document.getElementsByClassName('u-item-text-input')
+			for (let i = 0; i < el.length; i++) {
+				wrap.push(el[i])
+			}
+			wrap.forEach(function(n,ind,arr){
+				n.oninput = function(){
+					if(arr[0].value && arr[1].value){
+						this.submitBtn.removeAttribute('disabled')
+					}else{
+						this.submitBtn.setAttribute('disabled','disabled')
+					}
+				}.bind(u.buildingForm)
+			})
+			
+		},
+		flexCheckbox: document.getElementById('u-flexCheckbox'),
+		rowCheckbox: document.getElementById('u-rowCheckbox'),
+		tagName: document.getElementById('u-item-tagName'),
+		quantity: document.getElementById('u-item-quan'),
+		labelsWrap: document.getElementById('u-item-labels-wrap'),
+		submitBtn: document.getElementById('u-item-btn')
 	}
 }
 	
