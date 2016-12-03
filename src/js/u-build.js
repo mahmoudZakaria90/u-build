@@ -32,16 +32,17 @@ let u = {
 			}
 			this.containerOuter.style.maxWidth = parsed + 'px';
 		}.bind(u)
+		this.containerOuter.style.borderColor = 'yellow'
 	},
 	target: function() {
-		var allElements = []
-		for (var i = 0; i < this.containerInner.length; i++) {
+		let allElements = []
+		for (let i = 0; i < this.containerInner.length; i++) {
 			allElements.push(this.containerInner[i])
 		}
-		allElements.forEach(function(n){
+		allElements.forEach(function(n,ind,arr){
 			n.addEventListener('click', function(e){
 			e.stopPropagation()
-			var eventObj = {
+			let eventObj = {
 				targetEl: e.target,
 				targetType: e.type,
 				targetName: e.target.tagName.toLowerCase(),
@@ -49,8 +50,14 @@ let u = {
 				targetId: e.target.id
 			}
 			
-			u.buildingForm.targetELd.innerHTML = eventObj.targetClass
-			}, false)
+
+			for (var i = 0; i < arr.length; i++) {
+				arr[i].style.borderColor = '#999'
+			}
+			eventObj.targetEl.style.borderColor = 'yellow'
+
+			this.buildingForm.targetELd.innerHTML = eventObj.targetClass
+			}.bind(u), false)
 		})
 	},
 
