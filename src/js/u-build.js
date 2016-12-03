@@ -64,7 +64,7 @@ let u = {
 				}
 
 				if(this.flexCheckbox.checked){
-					eventObj.targetEl.className += ' gv-flex gv-flex-grow'
+					eventObj.targetEl.setAttribute('data-flex','flex')
 				}
 				for (let i = 0; i < this.quantity.value; i++) {
 					var newElement = document.createElement(this.tagName.value)
