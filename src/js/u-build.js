@@ -58,10 +58,23 @@ let u = {
 
 			this.buildingForm.submitBtn.onclick = function(e){
 				e.preventDefault()
+				if(this.rowCheckbox.checked){		
+					var newRow = document.createElement('div')
+					newRow.className = 'row'
+					eventObj.targetEl.appendChild(newRow)
+				}
+
+				if(this.flexCheckbox.checked){
+					eventObj.targetEl.className += ' gv-flex gv-flex-grow'
+				}
 				for (let i = 0; i < this.quantity.value; i++) {
 					var newElement = document.createElement(this.tagName.value)
 					newElement.className = 'span-' + Math.floor((12 / this.quantity.value))
-					eventObj.targetEl.appendChild(newElement)
+					if(this.rowCheckbox.checked){
+						newRow.appendChild(newElement)
+					}else{
+						eventObj.targetEl.appendChild(newElement)
+					}
 				}
 
 			}.bind(u.buildingForm)
