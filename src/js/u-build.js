@@ -56,7 +56,8 @@ let u = {
 			this.buildingForm.targetTitle.innerHTML = eventObj.targetClass
 			this.buildingForm.form.className += ' active'
 
-			this.buildingForm.submitBtn.onmousedown = function(e){
+			this.buildingForm.submitBtn.onclick = function(e){
+				e.preventDefault()
 				for (let i = 0; i < this.quantity.value; i++) {
 					var newElement = document.createElement(this.tagName.value)
 					newElement.className = 'span-' + Math.floor((12 / this.quantity.value))
