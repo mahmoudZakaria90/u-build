@@ -41,7 +41,7 @@ let u = {
 		allElements.forEach(function(n){
 			n.addEventListener('click', function(e){
 			e.stopPropagation()
-			this.eventObj = {
+			var eventObj = {
 				targetEl: e.target,
 				targetType: e.type,
 				targetName: e.target.tagName.toLowerCase(),
@@ -49,8 +49,7 @@ let u = {
 				targetId: e.target.id
 			}
 			
-			u.buildingForm.targetELd.innerHTML = this.eventObj.targetClass
-
+			u.buildingForm.targetELd.innerHTML = eventObj.targetClass
 			}, false)
 		})
 	},
