@@ -3,9 +3,19 @@
 
 //Copy
 if(document.querySelector('footer button')){
-let copyBtn = document.querySelector('footer button');
+let copyBtn = document.getElementById('u-copy-btn');
 	copyBtn.onclick = function(){
-	 	let x = document.getElementsByTagName('textarea')[0]
+	 	let x = document.getElementById('u-copy-area')
+	 	let y = document.getElementById('u-copy-state')
+	 	x.removeAttribute('disabled')
+	 	setTimeout(function(){
+	 		x.setAttribute('disabled','disabled')
+	 		y.className += ' active'
+	 	},1000)
+	 	setTimeout(function(){
+	 		x.setAttribute('disabled','disabled')
+	 		y.classList.remove('active') 
+	 	},5000)
 	 	x.select()
 	 	document.execCommand('copy')
 	}
@@ -49,17 +59,18 @@ let u = {
 				targetId: e.target.id
 			}
 			
-			for (let i = 0; i < this.containerOuter.children.length; i++) {
-				this.containerOuter.children[i].style.borderColor = '#999'
+			for (let i = 0; i < document.querySelectorAll('.u-build *').length; i++) {
+				document.querySelectorAll('.u-build *')[i].style.borderColor = '#999'
 			}
 			eventObj.targetEl.style.borderColor = 'yellow'
 			this.buildingForm.targetTitle.innerHTML = eventObj.targetClass
 			this.buildingForm.form.className += ' active'
 			this.buildingForm.submitBtn.onclick = function(e){
-				e.preventDefault()
+				e.preventDefault();
+				
 				if(this.rowCheckbox.checked){		
 					var newRow = document.createElement('div')
-					newRow.className = 'row'
+					newRow.className = 'row clf'
 					eventObj.targetEl.appendChild(newRow)
 				}
 
@@ -75,10 +86,16 @@ let u = {
 						eventObj.targetEl.appendChild(newElement)
 					}
 				}
+				for (var i = 0; i < u.containerInner.length; i++) {
+					u.containerInner[i].removeAttribute('style')
+				}
+				var copyArea = document.getElementById('u-copy-area')
+				copyArea.value = document.querySelector('.u-build').innerHTML
+				
 
 			}.bind(u.buildingForm)
 
-			}.bind(u), false)
+		  }.bind(u), false)
 		})
 	},
 	buildingForm: {

@@ -1,7 +1,17 @@
+//flex
+[data-flex]
+	display: flex
+	flex-wrap: wrap
+	&>*
+		flex-grow: 1
+		flex-shrink: 0
+		width: auto
+
 //row 
 .row
 	margin: 0 -1.5rem
 	position: relative
+	flex-basis: 100%
 
 //clearfix
 .clf

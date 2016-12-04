@@ -35,7 +35,6 @@
 	&-system
 		background-color: #1366ac
 		padding: 1.5rem 0
-		margin-bottom: 142px
 		color: white
 		&>h1
 			border-bottom: 1px solid white
@@ -60,4 +59,31 @@
 		& .container
 			padding: .5rem 1.5rem 1.5rem
 
-	
+	&-copy
+		&-area
+			margin-top: $lg
+			display: block
+			width: 100%
+			background-color: #aaa
+			border: none!important
+			padding: 1.5rem
+			resize: none
+			min-height: 350px 
+			&[disabled]
+				cursor: default!important
+		&-state
+			position: fixed
+			top: -100%
+			left: 0
+			right: 0
+			text-align: center
+			background-color: #59c7bd
+			color: white
+			z-index: 155
+			+gvTransitionD()
+			&.active
+				top: 0
+
+
+footer
+	margin-bottom: 150px
