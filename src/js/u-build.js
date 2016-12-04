@@ -86,6 +86,9 @@ let u = {
 						eventObj.targetEl.appendChild(newElement)
 					}
 				}
+				for (let i = 0; i < document.querySelectorAll('.u-build *').length; i++) {
+					document.querySelectorAll('.u-build *')[i].title = "Size: " + document.querySelectorAll('.u-build *')[i].offsetWidth + 'px'
+				}		
 				for (var i = 0; i < document.querySelectorAll('.u-build *').length; i++) {
 					document.querySelectorAll('.u-build *')[i].removeAttribute('style')
 				}
