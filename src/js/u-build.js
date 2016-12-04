@@ -4,14 +4,16 @@
 //Copy
 if(document.querySelector('footer button')){
 let copyBtn = document.getElementById('u-copy-btn');
+let x = document.getElementById('u-copy-area')
+let y = document.getElementById('u-copy-state')
 	copyBtn.onclick = function(){
-		if(document.getElementsByTagName('textarea')[0].value){
-	 	let x = document.getElementById('u-copy-area')
-	 	let y = document.getElementById('u-copy-state')
+	  if(document.getElementsByTagName('textarea')[0].value){
 	 	x.removeAttribute('disabled')
 	 	setTimeout(function(){
 	 		x.setAttribute('disabled','disabled')
-	 		y.className += ' active'
+	 		y.classList.add('active')
+	 		y.innerHTML = 'Structure has been copied successfully'
+	 		y.classList.remove('warn')
 	 	},1000)
 	 	setTimeout(function(){
 	 		x.setAttribute('disabled','disabled')
@@ -19,6 +21,12 @@ let copyBtn = document.getElementById('u-copy-btn');
 	 	},5000)
 	 	x.select()
 	 	document.execCommand('copy')
+	 }else{
+	 	y.classList.add('warn')
+	 	y.innerHTML = 'But there is nothing yet!'
+	 	setTimeout(function(){
+	 		y.classList.remove('warn') 
+	 	},5000)
 	 }
 	}
 }
