@@ -86,11 +86,11 @@ let u = {
 						eventObj.targetEl.appendChild(newElement)
 					}
 				}
-				for (var i = 0; i < u.containerInner.length; i++) {
-					u.containerInner[i].removeAttribute('style')
+				for (var i = 0; i < document.querySelectorAll('.u-build *').length; i++) {
+					document.querySelectorAll('.u-build *')[i].removeAttribute('style')
 				}
 				var copyArea = document.getElementById('u-copy-area')
-				copyArea.value = document.querySelector('.u-build').innerHTML
+				copyArea.value = document.querySelector('.u-build .container').innerHTML
 				
 
 			}.bind(u.buildingForm)
