@@ -90,7 +90,7 @@ let u = {
 					document.querySelectorAll('.u-build *')[i].removeAttribute('style')
 				}
 				var copyArea = document.getElementById('u-copy-area')
-				copyArea.value = document.querySelector('.u-build .container').innerHTML
+				copyArea.value = document.querySelector('.u-build').innerHTML
 				
 
 			}.bind(u.buildingForm)
