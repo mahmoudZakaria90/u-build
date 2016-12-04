@@ -12,7 +12,7 @@ let y = document.getElementById('u-copy-state')
 	 	setTimeout(function(){
 	 		x.setAttribute('disabled','disabled')
 	 		y.classList.add('active')
-	 		y.innerHTML = 'Structure has been copied successfully'
+	 		y.innerHTML = 'Structure has been copied to the clipboard successfully'
 	 		y.classList.remove('warn')
 	 	},1000)
 	 	setTimeout(function(){
