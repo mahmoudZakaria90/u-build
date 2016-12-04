@@ -5,6 +5,7 @@
 if(document.querySelector('footer button')){
 let copyBtn = document.getElementById('u-copy-btn');
 	copyBtn.onclick = function(){
+		if(document.getElementsByTagName('textarea')[0].value){
 	 	let x = document.getElementById('u-copy-area')
 	 	let y = document.getElementById('u-copy-state')
 	 	x.removeAttribute('disabled')
@@ -18,6 +19,7 @@ let copyBtn = document.getElementById('u-copy-btn');
 	 	},5000)
 	 	x.select()
 	 	document.execCommand('copy')
+	 }
 	}
 }
 
