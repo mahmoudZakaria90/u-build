@@ -78,23 +78,39 @@ let u = {
 			this.buildingForm.submitBtn.onclick = function(e){
 				e.preventDefault();
 				
-				if(this.rowCheckbox.checked){		
+				if(this.rowCheckbox.checked && !this.flexCheckbox.checked){		
 					var newRow = document.createElement('div')
 					newRow.className = 'row clf'
 					eventObj.targetEl.appendChild(newRow)
+
+				}else if(this.flexCheckbox.checked && !this.rowCheckbox.checked){
+					var newFlex = document.createElement('div')
+					newFlex.setAttribute('data-flex','flex')
+					eventObj.targetEl.appendChild(newFlex)
+
+				} 
+				if(this.flexCheckbox.checked && this.rowCheckbox.checked){
+					var newRowFlex = document.createElement('div')
+					newRowFlex.setAttribute('data-flex','flex')
+					newRowFlex.className = 'row'
+					eventObj.targetEl.appendChild(newRowFlex)
 				}
 
-				if(this.flexCheckbox.checked){
-					eventObj.targetEl.setAttribute('data-flex','flex')
-				}
+				
 				for (let i = 0; i < this.quantity.value; i++) {
 					var newElement = document.createElement(this.tagName.value)
 					newElement.className = 'span-' + Math.floor((12 / this.quantity.value))
-					if(this.rowCheckbox.checked){
+					if(this.rowCheckbox.checked && !this.flexCheckbox.checked ){
 						newRow.appendChild(newElement)
-					}else{
+					}else if (this.flexCheckbox.checked && !this.rowCheckbox.checked){
+						newFlex.appendChild(newElement)
+					}else if(this.flexCheckbox.checked && this.rowCheckbox.checked){
+						newRowFlex.appendChild(newElement)
+					}
+					else{
 						eventObj.targetEl.appendChild(newElement)
 					}
+					
 				}
 				for (let i = 0; i < document.querySelectorAll('.u-build *').length; i++) {
 					document.querySelectorAll('.u-build *')[i].title = "Size: " + document.querySelectorAll('.u-build *')[i].offsetWidth + 'px'
@@ -116,7 +132,6 @@ let u = {
 		targetTitle: document.getElementById('u-target'),
 		init: function(){
 			this.enable()
-			this.checkboxes()
 		},
 		enable: function(){
 			let wrap = []
@@ -135,34 +150,7 @@ let u = {
 			})
 			
 		},
-		checkboxes: function(){
-			let wrap = []
-			let el = document.querySelectorAll('.u-item-inputs-flex input')
-			for (let i = 0; i < el.length; i++) {
-				wrap.push(el[i])
-			}
-			wrap.forEach(function(n,ind,arr){
-				
-				n.onchange = function(){
-				
-				if(arr[0].checked){
-					arr[1].setAttribute('disabled','disabled')
-					arr[1].parentNode.classList.add('disabled')
-				}else{
-					arr[1].removeAttribute('disabled')
-					arr[1].parentNode.classList.remove('disabled')
-				}
-
-				if(arr[1].checked){
-						arr[0].setAttribute('disabled','disabled')
-						arr[0].parentNode.classList.add('disabled')
-					}else{
-						arr[0].removeAttribute('disabled')
-						arr[0].parentNode.classList.remove('disabled')
-					}
-				}
-			})
-		},
+		
 		flexCheckbox: document.getElementById('u-flexCheckbox'),
 		rowCheckbox: document.getElementById('u-rowCheckbox'),
 		tagName: document.getElementById('u-item-tagName'),
