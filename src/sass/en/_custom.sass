@@ -98,3 +98,17 @@
 
 footer
 	margin-bottom: 150px
+
+[data-select]
+	animation: changeBorder 250ms alternate infinite
+h3[data-select]
+	animation: changeColor 500ms alternate infinite
+
+@keyframes changeBorder
+	to
+		border-color: yellow
+
+@keyframes changeColor
+	to
+		color: yellowgreen
+	

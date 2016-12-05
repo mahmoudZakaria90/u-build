@@ -71,7 +71,9 @@ let u = {
 			
 			for (let i = 0; i < document.querySelectorAll('.u-build *').length; i++) {
 				document.querySelectorAll('.u-build *')[i].style.borderColor = '#999'
+				document.querySelectorAll('.u-build *')[i].removeAttribute('data-select')
 			}
+			this.buildingForm.targetTitle.removeAttribute('data-select')
 			eventObj.targetEl.style.borderColor = 'yellow'
 			this.buildingForm.targetTitle.innerHTML = eventObj.targetClass
 			this.buildingForm.form.className += ' active'
@@ -117,7 +119,10 @@ let u = {
 				}		
 				for (var i = 0; i < document.querySelectorAll('.u-build *').length; i++) {
 					document.querySelectorAll('.u-build *')[i].removeAttribute('style')
+
 				}
+				
+				
 				var copyArea = document.getElementById('u-copy-area')
 				copyArea.value = document.querySelector('.u-build').innerHTML
 				
