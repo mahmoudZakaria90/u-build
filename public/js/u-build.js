@@ -49,8 +49,11 @@ let u = {
 			let parsed = parseInt(containerInput.value)
 			if(parsed < 320 || parsed > 1920){
 				return false
+			}else if(!parsed){
+				this.containerOuter.style.maxWidth = 960 + 'px'
 			}
 			this.containerOuter.style.maxWidth = parsed + 'px';
+			this.containerOuter.title = 'Size: ' + this.containerOuter.offsetWidth + 'px'
 		}.bind(u)
 	},
 	target: function() {
