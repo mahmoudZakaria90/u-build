@@ -82,6 +82,8 @@ let u = {
 			this.buildingForm.form.className += ' active'
 			this.buildingForm.submitBtn.onclick = function(e){
 				e.preventDefault();
+
+
 				
 				if(this.rowCheckbox.checked && !this.flexCheckbox.checked){		
 					var newRow = document.createElement('div')
@@ -129,6 +131,11 @@ let u = {
 				var copyArea = document.getElementById('u-copy-area')
 				copyArea.value = document.querySelector('.u-build').innerHTML
 				
+				this.tagName.value = 'div'
+				this.quantity.value = ''
+				this.flexCheckbox.checked = false
+				this.rowCheckbox.checked = false
+				this.submitBtn.setAttribute('disabled','')
 
 			}.bind(u.buildingForm)
 
@@ -138,6 +145,12 @@ let u = {
 	buildingForm: {
 		form: document.forms[0],
 		targetTitle: document.getElementById('u-target'),
+		flexCheckbox: document.getElementById('u-flexCheckbox'),
+		rowCheckbox: document.getElementById('u-rowCheckbox'),
+		tagName: document.getElementById('u-item-tagName'),
+		quantity: document.getElementById('u-item-quan'),
+		labelsWrap: document.getElementById('u-item-labels-wrap'),
+		submitBtn: document.getElementById('u-item-btn'),
 		init: function(){
 			this.enable()
 		},
@@ -157,14 +170,7 @@ let u = {
 				}.bind(u.buildingForm)
 			})
 			
-		},
-		
-		flexCheckbox: document.getElementById('u-flexCheckbox'),
-		rowCheckbox: document.getElementById('u-rowCheckbox'),
-		tagName: document.getElementById('u-item-tagName'),
-		quantity: document.getElementById('u-item-quan'),
-		labelsWrap: document.getElementById('u-item-labels-wrap'),
-		submitBtn: document.getElementById('u-item-btn')
+		}
 	}
 }
 	
